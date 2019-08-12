@@ -57,10 +57,6 @@ public class DataBase {
 
             System.out.println("Created table in given database...");
 
-            // sql = "REPLACE INTO saves (characterName ,characterXP ,characterHP ,characterAP ,characterDP)" +
-            //         "VALUES" +
-            //         "('Polite the sleepy' , 1000 , 100000000 , 1000000000000 , 2000000000000)";
-
             statement.execute(sql);
     }
 
@@ -76,6 +72,28 @@ public class DataBase {
         }
         return arrayList;
     }
+
+    public static int insert(String name, String className, int level, int xp, int attack, int defense, int hp) {
+        String sqlQuery = "INSERT INTO heroes(name, class, level, xp, attack, defense, hp) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        int id = 0;
+        try (PreparedStatement pstmt = TestConnection().prepareStatement(sqlQuery)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, className);
+            pstmt.setInt(3, level);
+            pstmt.setInt(4, xp);
+            pstmt.setInt(5, attack);
+            pstmt.setInt(6, defense);
+            pstmt.setInt(7, hp);
+            pstmt.executeUpdate();
+
+            Statement stmt = TestConnection().createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT seq FROM sqlite_sequence WHERE name=\"heroes\"");
+            if (rs.next())
+                id = rs.getInt("seq");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return id;
 
     public static Hero selectHeroById(int id) throws SQLException, ClassNotFoundException {
         String sqlQuery = "SELECT * FROM heroes WHERE id = ?";
