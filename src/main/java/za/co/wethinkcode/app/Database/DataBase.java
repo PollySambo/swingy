@@ -6,6 +6,7 @@ import za.co.wethinkcode.app.Model.artifact.Weapon;
 import za.co.wethinkcode.app.Model.character.Hero;
 import za.co.wethinkcode.app.Model.character.HeroBuilder;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -73,7 +74,8 @@ public class DataBase {
         return arrayList;
     }
 
-    public static int insert(String name, String className, int level, int xp, int attack, int defense, int hp) {
+    public static int insert(String name, String className, int level, int xp, int attack, int defense, int hp)
+            throws ClassNotFoundException {
         String sqlQuery = "INSERT INTO heroes(name, class, level, xp, attack, defense, hp) VALUES(?, ?, ?, ?, ?, ?, ?)";
         int id = 0;
         try (PreparedStatement pstmt = TestConnection().prepareStatement(sqlQuery)) {
@@ -94,6 +96,7 @@ public class DataBase {
             System.out.println(e.getMessage());
         }
         return id;
+    }
 
     public static Hero selectHeroById(int id) throws SQLException, ClassNotFoundException {
         String sqlQuery = "SELECT * FROM heroes WHERE id = ?";
