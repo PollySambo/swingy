@@ -6,7 +6,7 @@ public interface StartView {
 
     void start() throws SQLException, ClassNotFoundException;
 
-    void openCreateHero() throws SQLException;
+    void openCreateHero() throws SQLException, ClassNotFoundException;
 
     void switchView();
 

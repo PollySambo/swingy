@@ -86,7 +86,7 @@ public class SelectHeroViewConsole implements SelectHeroView {
     }
 
     @Override
-    public void openCreateHero() throws SQLException {
+    public void openCreateHero() throws SQLException, ClassNotFoundException {
         new CreateHeroViewConsole().start();
     }
 }

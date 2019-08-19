@@ -1,6 +1,10 @@
 package za.co.wethinkcode.app.Model.artifact;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public abstract class Artifact {
 
     private int points;
@@ -9,14 +13,6 @@ public abstract class Artifact {
     public Artifact(String name, int points) {
         this.name = name;
         this.points = points;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public String getName() {
-        return name;
     }
 
     @Override

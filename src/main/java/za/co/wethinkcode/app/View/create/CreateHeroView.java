@@ -5,9 +5,9 @@ import java.sql.SQLException;
 
 public interface CreateHeroView {
 
-    void start() throws SQLException;
+    void start() throws SQLException, ClassNotFoundException;
 
-    void getUserInput() throws SQLException;
+    void getUserInput() throws SQLException, ClassNotFoundException;
 
     void showErrorMessage(String message);
 

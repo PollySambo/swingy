@@ -1,5 +1,7 @@
 package za.co.wethinkcode.app.Model;
 
+import lombok.Getter;
+import lombok.Setter;
 import za.co.wethinkcode.app.Model.artifact.Armor;
 import za.co.wethinkcode.app.Model.artifact.Artifact;
 import za.co.wethinkcode.app.Model.artifact.Helm;
@@ -11,7 +13,8 @@ import za.co.wethinkcode.app.Dependencies.exception.Point;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-
+@Getter
+@Setter
 public class Game {
 
     private static Game instance = null;
@@ -100,35 +103,5 @@ public class Game {
         map[heroCoord.getY()][heroCoord.getX()] = false;
     }
 
-    public int getMapSize() {
-        return mapSize;
-    }
 
-    public void setMapSize(int mapSize) {
-        this.mapSize = mapSize;
-    }
-
-    public Hero getHero() {
-        return hero;
-    }
-
-    public void setHero(Hero hero) {
-        this.hero = hero;
-    }
-
-    public Point getHeroCoord() {
-        return heroCoord;
-    }
-
-    public void setHeroCoord(Point heroCoord) {
-        this.heroCoord = heroCoord;
-    }
-
-    public boolean[][] getMap() {
-        return map;
-    }
-
-    public void setMap(boolean[][] map) {
-        this.map = map;
-    }
 }

@@ -45,7 +45,7 @@ public class SelectHeroController {
         view.openGame();
     }
 
-    public void onCreateButtonPressed() throws SQLException {
+    public void onCreateButtonPressed() throws SQLException, ClassNotFoundException {
         view.openCreateHero();
     }
 }

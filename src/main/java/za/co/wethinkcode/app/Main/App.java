@@ -29,6 +29,7 @@ public class App
         }
 
         DataBase.Connect2DataBase();
+        DataBase.CreateTable();
 
         if (args[0].equals("console"))
             new StartViewConsole().start();

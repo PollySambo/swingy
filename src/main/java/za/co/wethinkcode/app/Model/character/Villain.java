@@ -1,8 +1,11 @@
 package za.co.wethinkcode.app.Model.character;
 
+import lombok.Getter;
+import lombok.Setter;
 import za.co.wethinkcode.app.Model.artifact.Artifact;
 
-
+@Setter
+@Getter
 public class Villain extends Character {
 
     private Artifact artifact;
@@ -12,7 +15,4 @@ public class Villain extends Character {
         this.artifact = artifact;
     }
 
-    public Artifact getArtifact() {
-        return artifact;
-    }
 }

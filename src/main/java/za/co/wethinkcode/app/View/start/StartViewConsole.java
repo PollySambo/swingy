@@ -43,7 +43,7 @@ public class StartViewConsole implements StartView {
     }
 
     @Override
-    public void openCreateHero() throws SQLException {
+    public void openCreateHero() throws SQLException, ClassNotFoundException {
         new CreateHeroViewConsole().start();
     }
 

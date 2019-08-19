@@ -1,5 +1,7 @@
  package za.co.wethinkcode.app.Model.character;
 
+import lombok.Getter;
+import lombok.Setter;
 import za.co.wethinkcode.app.Dependencies.exception.*;
 import za.co.wethinkcode.app.Model.artifact.Armor;
 import za.co.wethinkcode.app.Model.artifact.Helm;
@@ -11,8 +13,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 import java.util.logging.Level;
 
-
+ @Getter
+ @Setter
 public class Hero extends Character {
+
 
     private Weapon weapon;
     private Armor armor;
@@ -39,14 +43,6 @@ public class Hero extends Character {
         this.level = level;
         this.experience = experience;
         this.heroClass = heroClass;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void validateHero() throws HeroValidationException {
@@ -114,54 +110,6 @@ public class Hero extends Character {
         hitPoints += 50 + level * 10;
         attack += level * 3;
         defense += level * 2;
-    }
-
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
-    public Armor getArmor() {
-        return armor;
-    }
-
-    public void setArmor(Armor armor) {
-        this.armor = armor;
-    }
-
-    public Helm getHelm() {
-        return helm;
-    }
-
-    public void setHelm(Helm helm) {
-        this.helm = helm;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
-
-    public String getHeroClass() {
-        return heroClass;
-    }
-
-    public void setHeroClass(String heroClass) {
-        this.heroClass = heroClass;
     }
 
     @Override

@@ -13,5 +13,5 @@ public interface SelectHeroView {
 
     void openGame() throws SQLException;
 
-    void openCreateHero() throws SQLException;
+    void openCreateHero() throws SQLException, ClassNotFoundException;
 }

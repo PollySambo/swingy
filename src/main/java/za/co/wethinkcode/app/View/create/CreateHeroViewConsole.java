@@ -13,14 +13,14 @@ public class CreateHeroViewConsole implements CreateHeroView {
     private CreateHeroController controller;
 
     @Override
-    public void start() throws SQLException {
+    public void start() throws SQLException, ClassNotFoundException {
         controller = new CreateHeroController(this);
 
         getUserInput();
     }
 
     @Override
-    public void getUserInput() throws SQLException {
+    public void getUserInput() throws SQLException, ClassNotFoundException {
         Scanner scanner = App.getScanner();
 
         System.out.println("To create hero enter his name and class.");

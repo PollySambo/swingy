@@ -68,23 +68,23 @@ public class GameController {
             villainCollision();
         }
 
-//        if (game.getHero().getHitPoints() > 0)
-//            view.update(game);
+       if (game.getHero().getHitPoints() > 0)
+           view.update(game);
     }
 
     private void winGame() throws SQLException {
         view.showMessage("You win! And got additional " + game.getMapSize() * 100 + "xp!");
         addExperience(game.getMapSize() * 100);
-//        updateDataBase();
+       updateDataBase();
         view.gameFinished();
     }
 
-//    private void updateDataBase() {
-//        Hero hero = game.getHero();
-//        DataBase.updateHero(hero);
-//    }
+   private void updateDataBase() {
+       Hero hero = game.getHero();
+       DataBase.updateHero(hero);
+   }
 
-    private void villainCollision() throws SQLException {
+    private void villainCollision() throws SQLException {                                                   
         view.getVillainCollisionInput();
     }
 

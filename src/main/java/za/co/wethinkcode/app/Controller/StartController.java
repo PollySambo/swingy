@@ -13,7 +13,7 @@ public class StartController {
         this.view = view;
     }
 
-    public void onCreateHeroButtonPressed() throws SQLException {
+    public void onCreateHeroButtonPressed() throws SQLException, ClassNotFoundException {
         view.openCreateHero();
     }
 

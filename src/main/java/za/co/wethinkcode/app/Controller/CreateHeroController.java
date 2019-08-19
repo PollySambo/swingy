@@ -20,7 +20,7 @@ public class CreateHeroController {
         game = Game.getInstance();
     }
 
-    public void onCreateButtonPressed(String name, String heroClass) throws SQLException {
+    public void onCreateButtonPressed(String name, String heroClass) throws SQLException, ClassNotFoundException {
         Hero hero;
         try {
             hero = HeroFactory.newHero(name, heroClass);
@@ -31,8 +31,8 @@ public class CreateHeroController {
             return;
         }
 
-//        int id = DataBase.insert(hero.getName(), hero.getHeroClass(), hero.getLevel(), hero.getExperience(), hero.getAttack(), hero.getDefense(), hero.getHitPoints());
-//        hero.setId(id);
+       int id = DataBase.insert(hero.getName(), hero.getHeroClass(), hero.getLevel(), hero.getExperience(), hero.getAttack(), hero.getDefense(), hero.getHitPoints());
+       hero.setId(id);
         game.initGame(hero);
         view.openGame();
     }

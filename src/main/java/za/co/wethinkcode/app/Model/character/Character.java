@@ -1,11 +1,15 @@
 package za.co.wethinkcode.app.Model.character;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.concurrent.ThreadLocalRandom;
 
-
+@Getter
+@Setter
 public abstract class Character {
 
     @NotNull(message = "Name cannot be null")
@@ -42,37 +46,5 @@ public abstract class Character {
             opponent.attack(this);
         }
         return this.getHitPoints() > 0;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAttack() {
-        return attack;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public int getDefense() {
-        return defense;
-    }
-
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    public int getHitPoints() {
-        return hitPoints;
-    }
-
-    public void setHitPoints(int hitPoints) {
-        this.hitPoints = hitPoints;
     }
 }
