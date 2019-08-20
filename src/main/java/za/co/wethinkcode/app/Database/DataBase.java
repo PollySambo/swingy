@@ -103,21 +103,21 @@ public class DataBase {
         Statement stmt = TestConnection().createStatement();
         try (ResultSet rs = stmt.executeQuery(sqlQuery)) {
             for (int i = 1; rs.next(); i++) {
-                arrayList.add(String.format("%d. %s (%s)", i, rs.getString("name"), rs.getString("class")));
+                arrayList.add(String.format("%d. %s (%s)", i, rs.getString("name"), rs.getString("className")));
             }
         }
         return arrayList;
     }
-    public static Hero selectHeroById(int id) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM heroes WHERE id = ?";
+    public static Hero selectHeroById(String name) throws SQLException, ClassNotFoundException {
+        String sqlQuery = "SELECT * FROM heroes WHERE name = ?";
         Hero hero = null;
 
         try (PreparedStatement pstmt = TestConnection().prepareStatement(sqlQuery)) {
-            pstmt.setInt(1, id);
+            pstmt.setString(1, name);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 HeroBuilder builder = new HeroBuilder();
-                builder.setId(rs.getInt("id"));
+//                builder.setId(rs.getInt("id"));
                 builder.setName(rs.getString("name"));
                 builder.setHeroClass(rs.getString("class"));
                 builder.setLevel(rs.getInt("level"));
