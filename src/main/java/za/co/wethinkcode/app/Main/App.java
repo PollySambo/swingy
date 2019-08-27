@@ -15,7 +15,7 @@ import javax.swing.*;
 
 /**
  * Created By Polite
- * 
+ *
  */
 public class App
 {
@@ -46,7 +46,6 @@ public class App
         }
         return frame;
     }
-
         public static void showFrame() {
         if (frame != null)
             frame.setVisible(true);
